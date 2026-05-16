@@ -77,7 +77,7 @@ textarea:focus{border-color:#888;background:#fff}
 .photo-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 2px;border-bottom:1px solid #f0efe8}
 .photo-row:last-of-type{border-bottom:none}
 .photo-label{font-size:15px;font-weight:600;color:#111}
-.num-select{width:90px;padding:8px 10px;border:1px solid rgba(0,0,0,0.18);border-radius:10px;font-size:15px;font-weight:700;background:rgba(255,255,255,0.95);font-family:inherit;color:#111;text-align:center}
+.num-select{width:122px;padding:8px 10px;border:1px solid rgba(0,0,0,0.18);border-radius:10px;font-size:15px;font-weight:700;background:rgba(255,255,255,0.95);font-family:inherit;color:#111;text-align:center}
 .num-select:focus{outline:none;border-color:#D85A30}
 .caption-row{margin-bottom:12px}
 .caption-label{display:block;font-size:13px;font-weight:700;color:#D85A30;margin-bottom:4px}
@@ -174,9 +174,9 @@ textarea:focus{border-color:#888;background:#fff}
 <div style="height:1rem"></div>
 <a class="back-link" onclick="backToHub()">&#8592; Takaisin valikkoon</a>
 <div class="card">
-<div class="task-head"><span class="emoji">&#127837;</span><h1>Makaronin heitto</h1></div>
-<p class="sub">Heittäkää 30 makaronia. Merkitkää montako niistä meni maaliin.</p>
-<label class="field-label">Maaliin menneet makaronit</label>
+<div class="task-head"><span class="emoji">&#9903;&#65039;</span><h1>Makaronin heitto</h1></div>
+<p class="sub">Heittäkää 30 makaronia. Merkitkää montako niistä meni uurnaan.</p>
+<label class="field-label">Uurnaan menneet makaronit</label>
 <input type="number" id="mac-input" class="num-big" min="0" max="30" placeholder="0" inputmode="numeric">
 <div class="scale-hint">Anna luku väliltä 0–30</div>
 <button class="next-btn" onclick="saveMacaroni()">Tallenna ja palaa valikkoon</button>
@@ -203,7 +203,7 @@ textarea:focus{border-color:#888;background:#fff}
 <a class="back-link" onclick="backToHub()">&#8592; Takaisin valikkoon</a>
 <div class="card">
 <div class="task-head"><span class="emoji">&#128444;&#65039;</span><h1>Kuvien järjestys</h1></div>
-<p class="sub">Edessänne on 13 valokuvaa, numeroitu 1–13. Tunnistakaa kuvat ja päättäkää niiden oikea aikajärjestys. Valitkaa jokaiselle kuvalle sen järjestysnumero (1 = vanhin, 13 = uusin). Jokainen numero käytetään vain kerran.</p>
+<p class="sub">Edessänne on 13 valokuvaa, numeroitu 1–13. Asettakaa ne aikajärjestykseen: valitkaa jokaiselle sijalle (1 = vanhin, 13 = uusin) sopiva kuva alasvetovalikosta. Jokainen kuva valitaan vain kerran.</p>
 <div id="photo-rows"></div>
 <div id="photo-feedback" class="feedback" style="display:none;margin-top:10px"></div>
 <button class="next-btn" id="photo-save" onclick="savePhotos()">Tallenna ja tarkista</button>
@@ -253,17 +253,17 @@ Kun olette lähettäneet tulokset, voitte palata valikkoon tai antaa laitteen se
 /* ===================================================================
    TIETOVISAN KYSYMYKSET (tehtävä 1)
    =================================================================== */
-var QUESTIONS=[{"type": "open", "q": "Montako päivää on Villen ja Mintun ikäero?", "answer": "31", "explain": "Ikäeroa on tasan 31 päivää! Ja muuten – 1996 oli karkausvuosi."}, {"type": "open", "q": "Mikä oli Villen ja Mintun ensimmäinen auto?", "answer": "citroen c3", "partial_answers": ["citroen", "citroën", "c3"], "explain": "Ensimmäinen yhteinen menopeli oli Citroën C3."}, {"type": "mc", "q": "Monessako maassa Ville ja Minttu ovat käyneet yhteensä?", "opts": ["15", "17", "19"], "correct": 2, "explain": "Yhteensä 19 maata on nähty – ja lisää tulee varmasti!"}, {"type": "open", "q": "Montako yhteistä kotia Mintulla ja Villellä on ollut?", "answer": "3", "explain": "Yhteisiä koteja on ehtinyt olla jo 3 kappaletta!"}, {"type": "mc", "q": "Monessako koulussa Ville on ollut kirjoilla?", "opts": ["8", "9", "10"], "correct": 1, "explain": "Ville on ollut kirjoilla yhteensä 9 koulussa!"}, {"type": "mc", "q": "Mitä näistä Minttu EI ole kirjoittanut ylioppilaskirjoituksissa?", "opts": ["Matikka", "Venäjä", "Terveystieto"], "correct": 0, "explain": "Matikka jäi Mintulta kirjoittamatta!"}, {"type": "open", "q": "Milloin Minttu ja Ville muuttivat Kempeleeseen?", "answer": "kesäkuu 2022", "aliases": ["8.6.2022", "06/2022", "6/2022", "kesäkuussa 2022", "kesäkuu 22", "6.2022", "8.6.22", "kesä 2022", "062022"], "explain": "Muutto Kempeleeseen tapahtui 8.6.2022 eli kesäkuussa 2022."}];
+var QUESTIONS=[{"type": "open", "q": "Montako päivää on Villen ja Mintun ikäero?", "answer": "31", "explain": "Ikäeroa on tasan 31 päivää! Ja muuten – 1996 oli karkausvuosi."}, {"type": "open", "q": "Mikä oli Villen ja Mintun ensimmäinen auto? (Merkistä 1 piste, mallista 1 piste)", "answer": "citroen c3", "partial_answers": ["citroen", "citroën", "c3"], "explain": "Ensimmäinen yhteinen menopeli oli Citroën C3."}, {"type": "mc", "q": "Monessako maassa Ville ja Minttu ovat käyneet yhteensä?", "opts": ["15", "17", "19"], "correct": 2, "explain": "Yhteensä 19 maata on nähty – ja lisää tulee varmasti!"}, {"type": "open", "q": "Montako yhteistä kotia Mintulla ja Villellä on ollut?", "answer": "3", "aliases": ["kolme"], "explain": "Yhteisiä koteja on ehtinyt olla jo 3 kappaletta!"}, {"type": "mc", "q": "Monessako koulussa Ville on ollut kirjoilla? (Mukaan lasketaan kaikki peruskoulut, lukiot ja korkeakoulut)", "opts": ["8", "9", "10"], "correct": 1, "explain": "Ville on ollut kirjoilla yhteensä 9 koulussa!"}, {"type": "mc", "q": "Mitä näistä Minttu EI ole kirjoittanut ylioppilaskirjoituksissa?", "opts": ["Matikka", "Venäjä", "Terveystieto"], "correct": 0, "explain": "Matikka jäi Mintulta kirjoittamatta!"}, {"type": "open", "q": "Milloin Minttu ja Ville muuttivat Kempeleeseen?", "answer": "kesäkuu 2022", "aliases": ["8.6.2022", "06/2022", "6/2022", "kesäkuussa 2022", "kesäkuu 22", "6.2022", "8.6.22", "kesä 2022", "062022"], "explain": "Muutto Kempeleeseen tapahtui 8.6.2022 eli kesäkuussa 2022."}, {"type": "mc", "q": "Mikä näistä EI ole Villen bisnesidea?", "opts": ["Maalausliike Suti", "Nimikeksi.fi", "KFC (Kempele Fudge Center)", "veitsiteräväksi.fi"], "correct": 0, "explain": "Maalausliike Suti ei kuulu Villen bisnesideoihin!"}, {"type": "mc", "q": "Mikä näistä EI ole ollut Mintun työpaikka?", "opts": ["Ramin Fish and Soup", "Kotileena", "Leo Clean", "eHautaus"], "correct": 3, "explain": "Elokuusta alkaen tämäkin muuttuu!"}, {"type": "mc", "q": "Kumpi valmistui ammattiin ensin?", "opts": ["Ville", "Minttu"], "correct": 0, "explain": "Ville valmistui jouluna 2020 ja Minttu keväällä 2021."}];
 
 /* ===================================================================
-   TEHTÄVÄ 4 – OIKEA KRONOLOGINEN JÄRJESTYS
+   TEHTÄVÄ 4 – OIKEA AIKAJÄRJESTYS
    -------------------------------------------------------------------
-   MUOKKAA TÄHÄN oikeat vastaukset! CORRECT_ORDER[k-1] kertoo, mihin
-   järjestyssijaan (1 = vanhin ... 13 = uusin) fyysinen "Kuva k" kuuluu.
-   Esim. jos Kuva 1 on aikajärjestyksessä 5:s, laita ensimmäiseksi 5.
-   Numerot on arvottu satunnaisesti (ks. taulukko alla).
+   CORRECT_ORDER[p-1] kertoo, mikä fyysinen "Kuva k" kuuluu
+   järjestyssijaan p (1 = vanhin ... 13 = uusin).
+   Esim. CORRECT_ORDER[0]=10 → sijaan 1 (vanhin) kuuluu Kuva 10.
+   Numerot on arvottu satunnaisesti.
    =================================================================== */
-var CORRECT_ORDER=[11,4,6,8,3,7,5,10,12,1,9,2,13];
+var CORRECT_ORDER=[10,12,5,2,7,3,6,4,11,8,1,9,13];
 
 /* ===================================================================
    TILA
@@ -316,8 +316,8 @@ function startApp(){
 
 /* ---------- valikko ---------- */
 var TASKS=[
-  {id:1,emoji:"🧠",title:"Tietovisa",desc:"7 kysymystä Villestä ja Mintusta"},
-  {id:2,emoji:"🍝",title:"Makaronin heitto",desc:"Montako 30 makaronista meni maaliin"},
+  {id:1,emoji:"🧠",title:"Tietovisa",desc:"10 kysymystä Villestä ja Mintusta"},
+  {id:2,emoji:"⚱️",title:"Makaronin heitto",desc:"Montako 30 makaronista meni uurnaan"},
   {id:3,emoji:"🎯",title:"Ritsa-ammunta",desc:"Montako 20 laukauksesta osui maaliin"},
   {id:4,emoji:"🖼️",title:"Kuvien järjestys",desc:"Järjestä 13 valokuvaa aikajärjestykseen"},
   {id:5,emoji:"😄",title:"Kuvatekstit",desc:"Keksikää teksti 5 hauskalle kuvalle"}
@@ -508,14 +508,17 @@ function openPhotos(){
   c.innerHTML="";
   for(var i=1;i<=13;i++){
     var saved=state.t4.pos[i-1]||"";
-    var sel="<select class='num-select' id='photo-"+i+"'><option value=''>–</option>";
+    var sel="<select class='num-select' id='photo-"+i+"'><option value=''>– valitse –</option>";
     for(var p=1;p<=13;p++){
-      sel+="<option value='"+p+"'"+((""+saved)===(""+p)?" selected":"")+">"+p+"</option>";
+      sel+="<option value='"+p+"'"+((""+saved)===(""+p)?" selected":"")+">Kuva "+p+"</option>";
     }
     sel+="</select>";
     var row=document.createElement("div");
     row.className="photo-row";
-    row.innerHTML="<span class='photo-label'>Kuva "+i+"</span>"+sel;
+    var lab=i+".";
+    if(i===1)lab="1. (vanhin)";
+    else if(i===13)lab="13. (uusin)";
+    row.innerHTML="<span class='photo-label'>"+lab+"</span>"+sel;
     c.appendChild(row);
   }
   document.getElementById("photo-feedback").style.display="none";
@@ -527,12 +530,12 @@ function savePhotos(){
   var pos=[];
   for(var i=1;i<=13;i++){
     var v=document.getElementById("photo-"+i).value;
-    if(v===""){alert("Antakaa järjestysnumero kaikille 13 kuvalle.");return}
+    if(v===""){alert("Valitkaa kuva kaikille 13 sijalle.");return}
     pos.push(parseInt(v,10));
   }
   var seen={};
   for(var j=0;j<pos.length;j++){
-    if(seen[pos[j]]){alert("Sama järjestysnumero ("+pos[j]+") on annettu useammalle kuvalle. Jokainen numero 1–13 käytetään vain kerran.");return}
+    if(seen[pos[j]]){alert("Sama kuva (Kuva "+pos[j]+") on valittu useammalle sijalle. Jokainen kuva valitaan vain kerran.");return}
     seen[pos[j]]=true;
   }
   var correct=0;
@@ -540,7 +543,7 @@ function savePhotos(){
   state.t4.pos=pos;state.t4.correct=correct;state.t4.done=true;saveState();
   var fb=document.getElementById("photo-feedback");
   fb.className="feedback "+(correct===13?"ok":(correct>0?"half":"no"));
-  fb.textContent=(correct===13?"✓ Täydellinen! Kaikki 13 kuvaa oikein!":"Oikein "+correct+" / 13 kuvaa. Tulos on tallennettu.");
+  fb.textContent=(correct===13?"✓ Täydellinen! Kaikki 13 kuvaa oikealla sijalla!":"Oikein "+correct+" / 13 sijaa. Tulos on tallennettu.");
   fb.style.display="block";
   document.getElementById("photo-save").style.display="none";
   document.getElementById("photo-back").style.display="block";
@@ -581,8 +584,8 @@ function openSummary(){
   c.innerHTML="";
   c.appendChild(sumRow("🧠","1. Tietovisa",
     state.t1.done?(state.t1.score+" / "+state.t1.max+" pistettä"):"Tekemättä",state.t1.done));
-  c.appendChild(sumRow("🍝","2. Makaronin heitto",
-    state.t2.done?(state.t2.value+" / 30 maaliin"):"Tekemättä",state.t2.done));
+  c.appendChild(sumRow("⚱️","2. Makaronin heitto",
+    state.t2.done?(state.t2.value+" / 30 uurnaan"):"Tekemättä",state.t2.done));
   c.appendChild(sumRow("🎯","3. Ritsa-ammunta",
     state.t3.done?(state.t3.value+" / 20 osumaa"):"Tekemättä",state.t3.done));
   c.appendChild(sumRow("🖼️","4. Kuvien järjestys",
